@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Blockchain Developer Toolkit</title>
+    <title>Money Management</title>
 
     <!-- Bootstrap -->
-    <link href="vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <!-- https://getbootstrap.com/docs/4.1/examples/dashboard/ -->
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -20,13 +20,24 @@
   </head>
   <body>
     <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Blockchain Developer Toolkit</a>
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#"
+        >Money Management</a
+      >
       <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-          <small><a class="nav-link" href="#">Your Account: <span id="account"></span></a></small>
+          <small
+            ><a class="nav-link" href="#"
+              >Your Account: <span id="account"></span></a
+          ></small>
         </li>
       </ul>
     </nav>
+    <div>
+      <button onclick="App.display()">Display</button>
+      <small><a class="nav-link" href="index2.html">Add Account</a></small>
+    </div>
+
+    <!--
     <div class="container-fluid">
       <div class="row">
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10">
@@ -35,21 +46,14 @@
               <p class="text-center">Loading...</p>
             </div>
             <div id="content" class="col-lg-9" style="display: none;">
-              <h2>My Contract</b></h2>
-              <p>Here is the value stored on the blockchain: <span id="value"></span></p>
-
-              <h5>Update the Value</h5>
-              <form onSubmit="App.set(); return false;" class="" role="form">
-                <div class="form-group">
-                  <input id="newValue" class="form-control" type="text"></input>
-                </div>
-                <button type="submit" class="btn btn-primary">Set Value</button>
-              </form>
+             
+              
             </div>
           </div>
         </main>
       </div>
     </div>
+  -->
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
