@@ -88,7 +88,7 @@ App = {
     const newper=$('#per').val()
 
     await App.contractInstance.addAccount(newacc,newname,newper)
-    window.alert('Value updated! Refresh this page to see the new value (it might take a few seconds).')
+    window.alert('Value updated! Go to home page to see the details of the new account.')
   },
   //on submission of editName
   editName: async() =>{
@@ -98,7 +98,7 @@ App = {
      //get id of old name
     const newName=$('#newName').val()
     await App.contractInstance.editName(preName,newName)
-    window.alert('Value updated! Refresh this page to see the new name (it might take a few seconds).')
+    window.alert('Value updated! GO to home page to see the new name ')
   },
   editPer: async() =>{
     App.setLoading(true)
@@ -107,7 +107,14 @@ App = {
      //get id of percentage
     const per=$('#per').val()
     await App.contractInstance.editPercentage(perName,per)
-    window.alert('Value updated! Refresh this page to see the new percentage (it might take a few seconds).')
+    window.alert('Value updated! GO to home page to see the new percentage')
+  },
+  delete: async() =>
+  {
+    App.setLoading(true)
+    const delname=$('#delname').val()
+    await App.contractInstance.deleteAccount(delname)
+    window.alert('Account Deleted! Go to home page to see the present accounts.')
   },
 
   setLoading: (boolean) => {
