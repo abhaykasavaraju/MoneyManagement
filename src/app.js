@@ -70,12 +70,13 @@ App = {
     App.contractInstance = contract
     App.setLoading(false)
   },
-  async  display(){
-      var i;
-      var length= App.contractInstance.getNamesLength();//array of names
-      for(i=0;i<length;i++)
+  display: async()=>
+  {
+      var i=await App.contractInstance.getNamesLength();
+      var j;
+      for(j=1;j<=i;j++)
       {
-        document.write(App.contractInstance.getNames(i),App.contractInstance.getPercentage(i),App.getAddress(i)); //printing names
+          document.getElementById("para").innerHTML=document.getElementById("para").innerHTML+" "+await App.contractInstance.getNames(j)+" "+await App.contractInstance.getAddress(j)+" "+await App.contractInstance.getPercentage(j)+"<br>";
       }
   },
 //on submission of form of add account
