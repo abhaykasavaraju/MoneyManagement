@@ -1,5 +1,5 @@
 {
-  "name": "DeveloperKit",
+  "name": "MoneyManagement",
   "version": "1.0.0",
   "description": "The Complete Blockchain Developer Toolkit for 2019 & Beyond",
   "main": "truffle-config.js",
@@ -24,8 +24,6 @@
     "solidity-coverage": "^0.6.4",
     "truffle": "5.0.0-beta.0",
     "truffle-contract": "3.0.6",
-  },
-  "dependencies": {
     "@truffle/hdwallet-provider": "^1.0.18"
   }
 }

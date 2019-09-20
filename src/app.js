@@ -45,9 +45,9 @@ App = {
   },
 
   initContracts: async () => {
-    const contract = await $.getJSON('MyContract.json')
-    App.contracts.MyContract = TruffleContract(contract)
-    App.contracts.MyContract.setProvider(App.web3Provider)
+    const contract = await $.getJSON('MoneyManagement.json')
+    App.contracts.MoneyManagement = TruffleContract(contract)
+    App.contracts.MoneyManagement.setProvider(App.web3Provider)
   },
 
   render: async () => {
@@ -66,7 +66,7 @@ App = {
 
     
     // Load smart contract
-    const contract = await App.contracts.MyContract.deployed()
+    const contract = await App.contracts.MoneyManagement.deployed()
     App.contractInstance = contract
     App.setLoading(false)
   },
