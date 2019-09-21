@@ -38,21 +38,13 @@
               <p class="text-center">Loading...</p>
             </div>
             <div id="content" class="col-lg-9" style="display: none;">
-              <h2>Add Account</h2>
-              <form onSubmit="App.set(); return false;" class="" role="form">
-                <div class="form-group">
-                  Account:<input id="acc" class="form-control" type="text"></input>
-                </div>
+              <h2>Delete Account</h2>
+              <form onSubmit="App.delete(); return false;" class="" role="form">
 
                 <div class="form-group">
-                    Name:<input id="name" class="form-control" type="text"></input>
+                    Name:<input id="delname" class="form-control" type="text"></input>
                   </div>
-
-
-                  <div class="form-group">
-                    Percentage:<input id="per" class="form-control" type="text"></input>
-                  </div>
-                <button type="submit" class="btn btn-primary" href="index.html">Add Account</button>
+                <button type="submit" class="btn btn-primary" onclick="window.location='index.html'">Delete Account</button>
               </form>
             </div>
           </div>
