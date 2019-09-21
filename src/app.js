@@ -72,24 +72,10 @@ App = {
   },
   display: async()=>
   {
-
       var i=await App.contractInstance.getNamesLength();
-      var arr=new Array(i);
-      var k;
-      for(k=0;k<arr.length;k++){
-        arr[k]=new Array(3);
-      }
       var j;
-      for(k=0;k<i;k++){
-          arr[k][0]=await App.contractInstance.getNames(k+1);
-          arr[k][1]=await App.contractInstance.getAddress(k+1);
-          arr[k][2]=await App.contractInstance.getPercentage(k+1);
-      }
-
-
-      return arr;
-      for(j=1;j<=i;j++){
-      
+      for(j=1;j<=i;j++)
+      {
           document.getElementById("para").innerHTML=document.getElementById("para").innerHTML+" "+await App.contractInstance.getNames(j)+" "+await App.contractInstance.getAddress(j)+" "+await App.contractInstance.getPercentage(j)+"<br>";
       }
   },
