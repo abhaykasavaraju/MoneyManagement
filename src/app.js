@@ -45,9 +45,9 @@ App = {
   },
 
   initContracts: async () => {
-    const contract = await $.getJSON('MyContract.json')
-    App.contracts.MyContract = TruffleContract(contract)
-    App.contracts.MyContract.setProvider(App.web3Provider)
+    const contract = await $.getJSON('MoneyManagement.json')
+    App.contracts.MoneyManagement = TruffleContract(contract)
+    App.contracts.MoneyManagement.setProvider(App.web3Provider)
   },
 
   render: async () => {
@@ -63,23 +63,58 @@ App = {
     App.account = web3.eth.accounts[0]
     $('#account').html(App.account)
 
+
+    
     // Load smart contract
-    const contract = await App.contracts.MyContract.deployed()
+    const contract = await App.contracts.MoneyManagement.deployed()
     App.contractInstance = contract
-
-    const value = await App.contractInstance.get()
-    $('#value').html(value)
-
     App.setLoading(false)
   },
-
+  display: async()=>
+  {
+      var i=await App.contractInstance.getNamesLength();
+      var j;
+      for(j=1;j<=i;j++)
+      {
+          document.getElementById("para").innerHTML=document.getElementById("para").innerHTML+" "+await App.contractInstance.getNames(j)+" "+await App.contractInstance.getAddress(j)+" "+await App.contractInstance.getPercentage(j)+"<br>";
+      }
+  },
+//on submission of form of add account
   set: async () => {
     App.setLoading(true)
+//Adding account
+    const newacc= $('#acc').val()
+    const newname=$('#name').val()
+    const newper=$('#per').val()
 
-    const newValue = $('#newValue').val()
-
-    await App.contractInstance.set(newValue)
-    window.alert('Value updated! Refresh this page to see the new value (it might take a few seconds).')
+    await App.contractInstance.addAccount(newacc,newname,newper)
+    window.alert('Value updated! Go to home page to see the details of the new account.')
+  },
+  //on submission of editName
+  editName: async() =>{
+    App.setLoading(true)
+    //get id of old name
+    const preName=$('#preName').val()
+     //get id of old name
+    const newName=$('#newName').val()
+    await App.contractInstance.editName(preName,newName)
+    window.alert('Value updated! GO to home page to see the new name ')
+  },
+  editPer: async() =>{
+    App.setLoading(true)
+    //get id of  name
+    const perName=$('#name').val()
+     //get id of percentage
+    const per=$('#per').val()
+    await App.contractInstance.editPercentage(perName,per)
+    window.alert('Value updated! GO to home page to see the new percentage')
+  },
+  delete: async() =>
+  {
+    App.setLoading(true)
+    const delname=$('#delname').val()
+    await App.contractInstance.deleteAccount(delname)
+    window.alert('Account Deleted! Go to home page to see the present accounts.')
   },
 
   setLoading: (boolean) => {
